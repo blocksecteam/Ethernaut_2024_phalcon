@@ -1,93 +1,65 @@
-# Ethernaut CTF 2024
+# Ethernaut CTF 2024 - Phalcon Fork Version 🚩
 
-Here you can find the challenges for the Ethernaut CTF 2024 with their respective solutions. The challenges ran on top of a custom kCTF infrastructure, which you can find [here](https://github.com/OpenZeppelin/ctf-infra).
+[![Twitter Follow](https://img.shields.io/twitter/follow/Phalcon_xyz?label=Follow%20%40Phalcon_xyz&style=social)](https://twitter.com/Phalcon_xyz)
 
-### How to run challenges locally
-1. Git clone the [ctf-infra](https://github.com/OpenZeppelin/ctf-infra) repository, cd into `paradigmctf.py` and run `docker-compose up -d` to start the infrastructure.
-2. Git clone this repo, cd into `<challenge_name>/challenge` and run `docker-compose up -d` to start the challenge server.
-3. You can now access the challenge server at `localhost:1337`, for example: `nc localhost 1337`.
+See [README-CTF.md](README-CTF.md) for original Ethernaut CTF 2024 README.
 
-# Challenges
+## Phalcon Forks
 
-Challenges are listed in alphabetical order with the final number of solves and points.
+| Challenge       | Status | Description |
+|:----------------|:------:|:-----------:|
+| Alien Spaceship |   🟢   | Explore in [Phalcon Fork Scan](https://phalcon.blocksec.com/fork/scan/fork_0a11ba6d2c634627b7b7dc801070dfa1) |
+| beef            |   🟢   | Explore in [Phalcon Fork Scan](https://phalcon.blocksec.com/fork/scan/fork_86c86ec4385a4c17a9ede3719537b981) |
+| Dutch           |   🟡   | Currently vyper contract verification not supported, See [Phalcon Fork Scan](https://phalcon.blocksec.com/fork/scan/fork_17db3a05691b4bcf9ecb4fbf31e7fefe) |
+| Dutch 2         |   🟡   | Currently vyper contract verification not supported, See [Phalcon Fork Scan](https://phalcon.blocksec.com/fork/scan/fork_5f90c684ac024254b1843551208497ba) |
+| Greedy Sad Man  |   🔴   | Currently StarkNet fork not supported |
+| Space Bank      |   🟢   | Explore in [Phalcon Fork Scan](https://phalcon.blocksec.com/fork/scan/fork_04e042aee5e648beb3e534c1029dbdf0) |
+| start.exe       |   🔴   | Sign-in challenge with on-chain deployment |
+| Wombo Combo     |   🟢   | Explore in [Phalcon Fork Scan](https://phalcon.blocksec.com/fork/scan/fork_d6cc482d0fdf4683bd41ffb820a69157) |
+| XYZ             |   🟢   | Explore in [Phalcon Fork Scan](https://phalcon.blocksec.com/fork/scan/fork_0805fbb57ae1463bbcf15103d443861f) |
 
-## Alien Spaceship
-by steventhornton / 349 points / 37 solves
+## Quick Start
 
-**Description**:
+### Deploy
 
-You have hacked into an alien spaceship and stolen the bytecode that controls their spaceship. They are on a mission to attack your home planet. Luckily for you their spaceship runs on the EVM. Take over control of their spaceship and successfully `abortMission`.
+Make sure you have installed all required dependencies, and simply run:
 
-[Solution](alienspaceship/README.md) and [solve script](alienspaceship/challenge/project/script/Solve.s.sol)
+```bash
+./deploy.sh -k <Your Phalcon Access Key>
+```
 
-## beef
-by [cairoeth](https://twitter.com/cairoeth) / 485 points / 6 solves
+This will set up a new Phalcon project and deploy all challenges (except `start.exe` and `greedy-sad-man`) for you.
 
-**Description**:
+> Note: The *Access Key* used in the deploy script can be found in the [Account Settings](https://docs.blocksec.com/phalcon/quick-start/platform#account-settings) of the [Phalcon Dashboard](https://docs.blocksec.com/phalcon/quick-start/platform).
 
-My favorite project airdropped some tokens, but I didn't get any. Can you help me burn all of the supply? >:)
+If you want to create a fork in an existing project, add the `-p` option with your *Project ID*:
 
-[Solution](beef/README.md) and [solve script](beef/challenge/project/script/Solve.s.sol)
+```bash
+./deploy.sh -k <Your Phalcon Access Key> -p <Your Phalcon Project ID>
+```
 
-## Dutch
-by [cairoeth](https://twitter.com/cairoeth) / 289 points / 48 solves
+> Note: The *Project ID* can be viewed in the [Project Settings](https://docs.blocksec.com/phalcon/quick-start/platform#project-settings).
 
-**Description**:
+To deploy a specific challenge (except `start.exe` and `greedy-sad-man`), just add the challenge name after the command, like this:
 
-Dutch auctions are great for NFTs. Can you become the highest bidder?
+```bash
+./deploy.sh -k <Your Phalcon Acess Key> <challenge>
+```
 
-[Solution](dutch/README.md) and [solve script](dutch/challenge/project/script/Solve.s.sol)
+### Solve
 
-## Dutch 2
-by [cairoeth](https://twitter.com/cairoeth) / 453 points / 15 solves
+Since the official solution is provided, we will use the `Solve.s.sol` under the `challenge/project/script` directory of each challenge.
 
-**Description**:
+```bash
+./solve.sh -f <Your Phalcon Fork RPC> <challenge>
+```
 
-Looks like someone is auctioning a lot of tokens, but they are encrypted. Might be a good idea to bid...
+> Note: The *Fork RPC* is shown in the [Fork Panel](https://docs.blocksec.com/phalcon/quick-start/fork).
 
-[Solution](dutch-2/README.md) and [solve script](dutch-2/challenge/project/script/Solve.s.sol)
+When the `CHALLENGE` environment variable is provided, the script will interpret the contents of the specified file as the **contract address** for the challenge. Or else, it will resort to the defualt path.
 
-## Greedy Sad Man
-by [ericnordelo](https://twitter.com/ericng39) / 428 points / 21 solves
+## Acknowledgement
 
-**Description**:
+Great thanks to [OpenZeppelin](https://twitter.com/OpenZeppelin) for hosting such a high-quality competition and to all fellows behind [Foundry](https://github.com/foundry-rs/foundry) for building the powerful toolkit.
 
-A very greedy and sad man is accepting donations in order to reduce his sadness. Everyone deserves happiness. Will you be able to make him happy?
-
-[Solution](greedy-sad-man/README.md) and [solve script](greedy-sad-man/challenge/project/solve.py)
-
-## Space Bank
-by [pedroais2](https://twitter.com/Pedroais2) / 204 points / 64 solves
-
-**Description**:
-
-The formidable Space Bank is known for its stringent security systems and vast reserves of space tokens (Galactic credits). Outsmart two state-of-the-art alarms, steal the tokens, and then detonate the bank to claim victory.
-
-[Solution](spacebank/README.md) and [solve script](spacebank/challenge/project/script/Solve.s.sol)
-
-## start.exe
-by [cairoeth](https://twitter.com/cairoeth) / 10 points / 298 solves
-
-**Description**:
-
-This transaction seems to be the start of something big. Can you figure out what it is? https://sepolia.etherscan.io/tx/0x73fcb6eec33280c39a696b8db0f7b3f71f789c28ef722e0c716f9c8cef6aa040
-
-[Solution](start.exe/README.md)
-
-## Wombo Combo
-by [cairoeth](https://twitter.com/cairoeth) / 295 points / 47 solves
-
-**Description**:
-
-You should stake your tokens to get more tokens!
-
-[Solution](wombocombo/README.md) and [solve script](wombocombo/challenge/project/script/Solve.s.sol)
-
-## XYZ
-by [cairoeth](https://twitter.com/cairoeth) / 449 points / 16 solves
-
-**Description**:
-
-XYZ: the most advanced algorithmic stablecoin that never depegs.
-
-[Solution](xyz/README.md) and [solve script](xyz/challenge/project/script/Solve.s.sol)
+This repository is forked from [Ethernaut CTF 2024 Challenges & Solutions](https://github.com/OpenZeppelin/ctf-2024), where you can find the challenges with their corresponding solutions.
