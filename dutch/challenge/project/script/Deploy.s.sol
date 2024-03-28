@@ -36,9 +36,12 @@ contract Deploy is CTFDeployment {
         returns (address deployedAddress)
     {
         string[] memory cmds = new string[](2);
-        cmds[0] = "/usr/local/bin/vyper";
+        cmds[0] = "vyper";
         cmds[1] = string.concat(path, name, ".vy");
 
+        // To run this command, please install vyper and snekmate using:
+        // pip install git+https://github.com/vyperlang/vyper.git@v0.4.0b4 && \
+        // pip install git+https://github.com/pcaversaccio/snekmate.git@modules
         bytes memory bytecode = vm.ffi(cmds);
         bytecode = abi.encodePacked(bytecode, args);
 
@@ -48,4 +51,5 @@ contract Deploy is CTFDeployment {
 
         require(deployedAddress != address(0), "Deployment failed");
     }
+
 }
