@@ -11,7 +11,7 @@ See [README-CTF.md](README-CTF.md) for original Ethernaut CTF 2024 README.
 | Alien Spaceship |   🟢   | Explore in [Phalcon Fork Scan](https://phalcon.blocksec.com/fork/scan/fork_0a11ba6d2c634627b7b7dc801070dfa1) |
 | beef            |   🟢   | Explore in [Phalcon Fork Scan](https://phalcon.blocksec.com/fork/scan/fork_86c86ec4385a4c17a9ede3719537b981) |
 | Dutch           |   🟡   | Currently vyper contract verification not supported, See [Phalcon Fork Scan](https://phalcon.blocksec.com/fork/scan/fork_17db3a05691b4bcf9ecb4fbf31e7fefe) |
-| Dutch 2         |   🟡   | Currently vyper contract verification not supported, See [Phalcon Fork Scan](https://phalcon.blocksec.com/fork/scan/fork_5f90c684ac024254b1843551208497ba) |
+| Dutch 2         |   🟢   | Explore in [Phalcon Fork Scan](https://phalcon.blocksec.com/fork/scan/fork_5f90c684ac024254b1843551208497ba) |
 | Greedy Sad Man  |   🔴   | Currently StarkNet fork not supported |
 | Space Bank      |   🟢   | Explore in [Phalcon Fork Scan](https://phalcon.blocksec.com/fork/scan/fork_04e042aee5e648beb3e534c1029dbdf0) |
 | start.exe       |   🔴   | Sign-in challenge with on-chain deployment |
