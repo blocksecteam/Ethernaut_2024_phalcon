@@ -6,7 +6,7 @@
 
 usage() {
     echo -e "Usage: $0 -f <rpc_url> <challenge>\n" >&2
-    echo -e "    -h                     Show this help"
+    echo -e "    -h                     Show this help" >&2
     echo -e "    -f <rpc_url>           Your Phalcon Fork RPC\n" >&2
     echo -e "See https://phalcon.blocksec.com/fork for detailed infos." >&2
 }

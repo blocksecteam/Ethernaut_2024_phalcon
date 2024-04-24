@@ -6,7 +6,7 @@
 
 usage() {
     echo -e "Usage: $0 -k <access_key> [-p <project_id>] [challenge]\n" >&2
-    echo -e "    -h                     Show this help"
+    echo -e "    -h                     Show this help" >&2
     echo -e "    -k <access_key>        Your Phalcon Access Key" >&2
     echo -e "    -p <project_id>        Your Phalcon Project ID\n" >&2
     echo "See https://phalcon.blocksec.com/account and https://phalcon.blocksec.com/settings for detailed infos." >&2
